@@ -16,14 +16,27 @@ body{
     flex-direction: column;
     row-gap: 2vh;
     align-items: center;
-    border: 1px solid red;
+    background-image: url(/img/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 65vh;
 }
 
+    
 #fRow{
     display: flex;
     flex-direction: column;
     width: 60%;
-    column-gap: 2px;
+    row-gap: 6vh;
+}
+
+#sRow{
+    display: flex;
+    width: 60%;
+    row-gap: 6vh;
+    justify-content: space-around;
 }
 
 #fRow > div{
@@ -36,7 +49,7 @@ select,
 button,
 input{
     border: 2px solid #c0c0c0c4;
-    background-color: #c0c0c095;
+    background-color: rgba(43, 166, 154, 0.121);
     color: #004E98;
     text-transform: uppercase;
     border-radius: 6px;
@@ -59,6 +72,33 @@ select{
 #sRow >  button{
     width: 15%;
 }
+
+table,
+thead,
+th,
+tr,
+td {
+    border: 1px solid #004E98;
+    border-radius: 3px;
+}
+
+tr:nth-child(even){
+    background-color: rgba(64, 224, 208, 0.24);
+}
+
+thead > tr:hover{
+    display: none;
+}
+
+tr:hover{
+    color: white;
+    background-color: #004f987d;
+}
+
+#all{
+    display: none;
+}
+
 
 
 
