@@ -15,7 +15,7 @@
     <div id="all" >
         <div id="fRow">
             <div>
-                <input type="text" placeholder="ex)192.60.50.203">
+                <input type="text" placeholder="ex)192.60.50.203" maxlength="15">
                 <select>
                     <option selected disabled>select subnet mask</option>
                     <option value="1">/1 (128.0.0.0)</option>
@@ -166,12 +166,15 @@
         </div>
         <div id="sRow">
             <!-- culculate required number of hosts(Takumi part)-->
-            <input type="text" placeholder="ex)192.60.50.203">
+            <input type="number" placeholder="put required hosts">
             <button>Caluculate</button>
+    <h1></h1>
         </div>
     </div>
 
 </body>
+<script src="./js/Hosts.js"></script>
+<script src="./js/ValifyInput.js"></script>
 <script>
      $('#cal').click((e)=>{
         switch($(e.target).text()){
