@@ -57,13 +57,22 @@
                 <th>Usable Host Bits</th>
             </tr>
         </thead> 
-        <tbody>
+        <tbody id="su">
         </tbody>  
     </table>
 
 
     <!-- show the culculated new network in table(Pablo part) --> 
-    <table>            
+    <table border="1"> 
+        <thead>
+            <tr>
+                <th>Network Address</th>
+                <th>Usable Host Range</th>
+                <th>Broadcast Address</th>
+            </tr>
+        </thead>
+        <tbody id="pablo">
+        </tbody>
     </table>
 
 
@@ -74,5 +83,6 @@
 </body>
 <script src="./js/Hosts.js"></script>
 <script src="./js/ValifyInput.js"></script>
-<script src="suhyun.js"></script>
+<script src="./js/subnetrange.js"> </script>
+<script src="./js/suhyun.js"></script>
 </html>

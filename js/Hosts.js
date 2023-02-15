@@ -13,6 +13,7 @@ const CalHost =()=>{
     let hostsNum = document.getElementsByTagName("input")[1].value;
     let hosts =[];
     if(hostsNum > 4294967294){
+        document.getElementsByTagName("h1")[0].innerText = "";
         alert("can't calculate");
     }else{
         for(let x=1; x<=32;x++){

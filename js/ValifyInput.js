@@ -7,16 +7,16 @@ const keyHandler =(e)=>{
     }
 }
 
-const inputValify =()=>{
-    let inputValue = document.getElementsByTagName("input")[0].value;
-    let inputArray = inputValue.split(".");
-    for(let val of inputArray){
-        if(val>255 || inputArray.length >4 || val ==""){
-            alert("put correct IP address");
-            break;
-        }
-    }
-}
+// const inputValify =()=>{
+//     let inputValue = document.getElementsByTagName("input")[0].value;
+//     let inputArray = inputValue.split(".");
+//     for(let val of inputArray){
+//         if(val>255 || inputArray.length >4 || val ==""){
+//             alert("put correct IP address");
+//             break;
+//         }
+//     }
+// }
 
-document.getElementsByTagName("input")[0].addEventListener("keypress",Input);
-document.getElementsByTagName("button")[0].addEventListener("click",inputValify);
+document.getElementsByTagName("input")[0].addEventListener("keypress",keyHandler);
+// document.getElementsByTagName("button")[0].addEventListener("click",inputValify);

@@ -1,64 +1,71 @@
-    let stIp = "";
-    let arr = [];
-    const inputVal = () => {
-        let input = document.getElementsByTagName("input")[0].value;
-        console.log(input);
-        arr = input.split('.');
-        console.log(arr);
-        let arr1 = [];
-        for(let biNum of arr) {
+let stIp = "";
+let arr = [];
+const inputVal = () => {
+    let input = document.getElementsByTagName("input")[0].value;
+    console.log(input);
+    arr = input.split('.');
+    console.log(arr);
+    let arr1 = [];
+    for(let biNum of arr) {                     //validationg input
+        if(biNum>255 || arr.length >4 || biNum ==""){
+            return alert("put correct IP address");
+        }else{
             arr1.push(toBi(parseInt(biNum)));
         }
-        console.log(arr1);
-        stIp = arr1.toString();
-        stIp = stIp.replace(",", "");
-        stIp = stIp.replace(",", "");
-        stIp = stIp.replace(",", "");
     }
-    document.getElementsByTagName("button")[0].addEventListener("click", inputVal);
-    
-    const toBi = (num) => {
-        let bi = num.toString(2);
-        console.log(bi);
-        let zero = "";
-        if(bi.length < 8) {
-            for(let x = 0;x < 8-bi.length;x++){
-                zero+="0";
-            }
-        }
-        let n = zero + bi;
-        // console.log(n);
-        return n;
-    }
-    // toBi(128);
-    
-    let snBi = "";
-    let hBits = 0;
-    const subnetMask = (e) => {
-        let select = e.target.value;
-        console.log(select);
-        let one ="";
-        let zr = "";
-        let count = 0;
-        for(let x = 0;x < select;x++) {
-            one += "1";
-        }
-        for(let y = 0;y < 32-select;y++) {
-            zr += "0";
-            count++;
-        }
-        snBi = one + zr;
-        console.log(snBi);
-        hBits = 2**count-2;
-        console.log(hBits);
-        
-    }
-    document.getElementsByTagName("select")[0].addEventListener("change",subnetMask);
+    console.log(arr1);
+    stIp = arr1.toString();
+    stIp = stIp.replace(",", "");
+    stIp = stIp.replace(",", "");
+    stIp = stIp.replace(",", "");
+}
+document.getElementsByTagName("button")[0].addEventListener("click", inputVal);
 
-    const calculator = () => {
-        let string ="";
-        console.log(stIp);
-        console.log(snBi);
+const toBi = (num) => {
+    let bi = num.toString(2);
+    console.log(bi);
+    let zero = "";
+    if(bi.length < 8) {
+        for(let x = 0;x < 8-bi.length;x++){
+            zero+="0";
+        }
+    }
+    let n = zero + bi;
+    // console.log(n);
+    return n;
+}
+// toBi(128);
+
+let snBi = "";
+let hBits = 0;
+const subnetMask = (e) => {
+    let select = e.target.value;
+    console.log(select);
+    let one ="";
+    let zr = "";
+    let count = 0;
+    for(let x = 0;x < select;x++) {
+        one += "1";
+    }
+    for(let y = 0;y < 32-select;y++) {
+        zr += "0";
+        count++;
+    }
+    snBi = one + zr;
+    console.log(snBi);
+    hBits = 2**count-2;
+    console.log(hBits);
+    
+}
+document.getElementsByTagName("select")[0].addEventListener("change",subnetMask);
+
+const calculator = () => {
+    let string ="";
+    console.log(stIp);
+    console.log(snBi);
+    if(stIp==[]){
+        console.log("err");
+    }else{
         for(let z = 0;z < 32;z++){
             if(stIp[z] == snBi[z] && stIp[z] == 1) {
                 string += "1";
@@ -248,7 +255,7 @@
             let td = document.createElement("td");
             td.innerText = val;
             tr.appendChild(td);
-            let tbody = document.getElementsByTagName("tbody")[0];
+            let tbody = document.getElementById("su");
             tbody.appendChild(tr);
         }
         tablePop(class1);
@@ -256,11 +263,12 @@
         tablePop(fRange + '-' + lRange);
         tablePop(broadAdd);
         tablePop(hBits);
-        class1 = "";
-        netAdd="";
-        fRange="";
-        lRange="";
-        broadAdd="";
-        hBits = 0;
+        // class1 = "";
+        // netAdd="";
+        // fRange="";
+        // lRange="";
+        // broadAdd="";
+        // hBits = 0;
     }
-    document.getElementsByTagName("button")[0].addEventListener("click", calculator);
+}
+document.getElementsByTagName("button")[0].addEventListener("click", calculator);
