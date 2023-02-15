@@ -1,8 +1,9 @@
     let stIp = "";
+    let arr = [];
     const inputVal = () => {
         let input = document.getElementsByTagName("input")[0].value;
         console.log(input);
-        let arr = input.split('.');
+        arr = input.split('.');
         console.log(arr);
         let arr1 = [];
         for(let biNum of arr) {
@@ -32,38 +33,30 @@
     // toBi(128);
     
     let snBi = "";
+    let hBits = 0;
     const subnetMask = (e) => {
         let select = e.target.value;
         console.log(select);
         let one ="";
         let zr = "";
+        let count = 0;
         for(let x = 0;x < select;x++) {
             one += "1";
         }
         for(let y = 0;y < 32-select;y++) {
             zr += "0";
+            count++;
         }
         snBi = one + zr;
         console.log(snBi);
-
-        let tr1 = document.getElementsByTagName("tr")[1];
-        let td1 = document.createElement("td");
-        if(8 <= select && select <= 15){
-            td1.innerText = "A";
-        }else if(16 <= select && select <= 23){
-            td1.innerText = "B";
-        }else if(24 <= select && select <= 32) {
-            td1.innerText = "C";
-        }else{
-            td1.innerText = "Public";
-        }
-        tr1.appendChild(td1);
+        hBits = 2**count-2;
+        console.log(hBits);
+        
     }
     document.getElementsByTagName("select")[0].addEventListener("change",subnetMask);
-    
 
-    let string ="";
     const calculator = () => {
+        let string ="";
         console.log(stIp);
         console.log(snBi);
         for(let z = 0;z < 32;z++){
@@ -145,6 +138,20 @@
             }
         }
         console.log(netAdd);
+
+        let class1 = "";
+        if(1<= arr[0] && arr[0] <= 127){
+            class1 = "A";
+        }else if("128" <= arr[0] && arr[0] <= "191"){
+            class1 = "B";
+        }else if("192" <= arr[0] && arr[0] <= "223"){
+            class1 = "C";
+        }else if("224" <= arr[0] && arr[0] <= "239"){
+            class1 = "D";
+        }else{
+            class1 = "E";
+        }   
+        arr=[];
 
         let opsnBi = "";
         for(let val of snBi) {
@@ -236,22 +243,24 @@
         }
         console.log(broadAdd);
 
-        //find range
-        
-
-        
+        let tr = document.createElement("tr");
         const tablePop = (val) => {
-            let tr = document.getElementsByTagName("tr")[1];
             let td = document.createElement("td");
             td.innerText = val;
             tr.appendChild(td);
+            let tbody = document.getElementsByTagName("tbody")[0];
+            tbody.appendChild(tr);
         }
+        tablePop(class1);
         tablePop(netAdd);
         tablePop(fRange + '-' + lRange);
         tablePop(broadAdd);
-        // netAdd="";
-        // fRange="";
-        // lRange="";
-        // broadAdd="";
+        tablePop(hBits);
+        class1 = "";
+        netAdd="";
+        fRange="";
+        lRange="";
+        broadAdd="";
+        hBits = 0;
     }
     document.getElementsByTagName("button")[0].addEventListener("click", calculator);
