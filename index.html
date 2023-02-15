@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,10 +10,11 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>IP Subnet Calculator</title>
 </head>
+
 <body>
     <h1>Subnet Claculator Team C</h1>
-    <button id="cal">Go to calculator</button>
-    <div id="all" >
+    <button id="cal">Calculate</button>
+    <div id="all">
         <div id="fRow">
             <div>
                 <input type="text" placeholder="ex)192.60.50.203" maxlength="15">
@@ -51,124 +53,27 @@
                     <option value="31">/31 (255.255.255.254)</option>
                     <option value="32">/32 (255.255.255.255)</option>
                 </select>
-                <button>Calculate</button>
+                <button id="mTrigger">Calculate</button>
             </div>
-            <!-- show the culculated subnet in table(Su part) -->
-            <table>
-                <thead>
-                    <tr>
-                        <th>
-                            val
-                        </th>
-                        <th>
-                            example
-                        </th>
-                    </tr>
-                </thead> 
-                <tbody>
-                    <tr>
-                        <td>
-                            1
-                        </td>
-                        <td>
-                            2
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            1
-                        </td>
-                        <td>
-                            2
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            1
-                        </td>
-                        <td>
-                            2
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            1
-                        </td>
-                        <td>
-                            2
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            1
-                        </td>
-                        <td>
-                            2
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            1
-                        </td>
-                        <td>
-                            2
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            1
-                        </td>
-                        <td>
-                            2
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            1
-                        </td>
-                        <td>
-                            2
-                        </td>
-                    </tr>
-                </tbody>  
-            </table>
-            <!-- show the culculated new network in table(Pablo part) --> 
-            <table>  
-                  <thead>
-                    <tr>
-                        <th>
-                            val2
-                        </th>
-                        <th>
-                            example2
-                        </th>
-                    </tr>
-                </thead> 
-                <tbody>
-                    <tr>
-                        <td>
-                            12
-                        </td>
-                        <td>
-                            22
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            12
-                        </td>
-                        <td>
-                            22
-                        </td>
-                    </tr>
-                </tbody>           
-            </table>
+            <div id="mWpp">
+                <div id="mCtx">
+                    <span id="cl" class="close">&times;</span>
+                    <!-- show the culculated subnet in table(Su part) -->
+                    <table>
+                       
+                    </table>
+                    <!-- show the culculated new network in table(Pablo part) -->
+                    <table>
+                        
+                    </table>
+                </div>
+            </div>
         </div>
         <div id="sRow">
             <!-- culculate required number of hosts(Takumi part)-->
             <input type="number" placeholder="put required hosts">
-            <button>Caluculate</button>
-    <h1></h1>
+            <button>Calculate</button>
+            <h2></h2>
         </div>
     </div>
 
@@ -176,18 +81,25 @@
 <script src="./js/Hosts.js"></script>
 <script src="./js/ValifyInput.js"></script>
 <script>
-     $('#cal').click((e)=>{
-        switch($(e.target).text()){
+    $('#all').hide();
+    $('#cal').click((e) => {
+        switch ($(e.target).text()) {
             case "Calculate":
-                // $(".box").hide(1000);
                 $(e.target).text("Back");
-            break;
+                break;
             case "Back":
-                // $(".box").show(1000);
                 $(e.target).text("Calculate");
-            break;
+                break;
         }
         $('#all').toggle(1000);
+    })
+    $('#mWpp').hide();
+    $('#mTrigger').click(()=>{
+        $('#mWpp').show();
     })  
+    $('#cl').click(()=>{
+        $('#mWpp').hide();
+    })
 </script>
+
 </html>

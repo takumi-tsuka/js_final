@@ -8,49 +8,38 @@
 
 html{
     scroll-behavior: smooth;
+    background-image: url(/img/bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 body{
     padding-top: 5vh;
     display: flex;
     flex-direction: column;
-    row-gap: 2vh;
+    row-gap: 10vh;
     align-items: center;
-    background-image: url(/img/bg.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    justify-content: center;
     width: 100%;
-    height: 65vh;
+    height: 95vh;
+    background-color: rgba(156, 153, 153, 0.313);
 }
 
-    
-#fRow{
-    display: flex;
-    flex-direction: column;
-    width: 60%;
-    row-gap: 6vh;
-}
-
-#sRow{
-    display: flex;
-    width: 60%;
-    row-gap: 6vh;
-    justify-content: space-around;
-}
-
-#fRow > div{
-    display: flex;
-    justify-content: space-around;
-    
+/* NORMALIZE: */
+h1,
+h2{
+    /* padding-bottom: 15vh; */
+    color:#fca311;
+    text-transform: uppercase;
 }
 
 select,
 button,
 input{
     border: 2px solid #c0c0c0c4;
-    background-color: rgba(43, 166, 154, 0.121);
-    color: #004E98;
+    background-color: #14213d86;
+    color:#fca311;
     text-transform: uppercase;
     border-radius: 6px;
     text-align: center;
@@ -65,20 +54,59 @@ select{
  width: 25%;
 }
 
+#all{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center; 
+    justify-content: center;
+}
+
+#cal{
+    height: 10vh;
+    width: 50%;
+    font-size: 25px;
+}
+  
+/* FIRST ROW: */
+
+#fRow{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    row-gap: 6vh;
+}
+
+#fRow > div{
+    display: flex;
+    justify-content: space-around;
+    
+}
+
 #fRow > div >  button{
     width: 15%;
 }
 
-#sRow >  button{
+/* SECOND ROW */
+
+#sRow{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    column-gap: 8vh;
+}
+
+#sRow > button{
     width: 15%;
 }
+/* TABLE: */
 
 table,
 thead,
 th,
 tr,
 td {
-    border: 1px solid #004E98;
+    border: 1px solid #fca311;
     border-radius: 3px;
 }
 
@@ -95,9 +123,43 @@ tr:hover{
     background-color: #004f987d;
 }
 
-#all{
-    display: none;
+#mWpp {
+    position: fixed;
+    z-index: 1; 
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    overflow: auto; 
 }
+  
+#mCtx {
+    background-color: #e6dcccee;
+    padding: 20px;
+    border: 1px solid #b9b3ab;
+    width: 80%;
+    height: 80%;
+    border-radius: 12px;
+}
+  
+  /* The Close Button */
+span {
+    color: #aaaaaa;
+    float: right;
+    font-size: 35px;
+    font-weight: bold;
+}
+  
+span:hover,
+span:focus {
+    color: #ea940aee;
+    cursor: pointer;
+    transition: 1s;
+}
+
+
+
 
 
 
