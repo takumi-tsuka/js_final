@@ -45,19 +45,6 @@
         }
         snBi = one + zr;
         console.log(snBi);
-
-        let tr1 = document.getElementsByTagName("tr")[1];
-        let td1 = document.createElement("td");
-        if(8 <= select && select <= 15){
-            td1.innerText = "A";
-        }else if(16 <= select && select <= 23){
-            td1.innerText = "B";
-        }else if(24 <= select && select <= 32) {
-            td1.innerText = "C";
-        }else{
-            td1.innerText = "Public";
-        }
-        tr1.appendChild(td1);
     }
     document.getElementsByTagName("select")[0].addEventListener("change",subnetMask);
     
@@ -137,14 +124,31 @@
         console.log(fRange);
 
         let netAdd = "";
+        let f = ""
         for(let index in arr3) {
             if(index < 3) {
                 netAdd += arr3[index] + ".";
             }else {
                 netAdd += arr3[index];
             }
+            if(index == 1){
+                f = arr3[index]; 
+            }
         }
         console.log(netAdd);
+
+        let class1 = "";
+        if("1"<= f && f <= "127"){
+            class1 = "A";
+        }else if("128" <= f && f <= "191"){
+            class1 = "B";
+        }else if("192" <= f && f <= "223"){
+            class1 = "C";
+        }else if("224" <= f && f <= "239"){
+            class1 = "D";
+        }else{
+            class1 = "E";
+        }   
 
         let opsnBi = "";
         for(let val of snBi) {
@@ -236,22 +240,22 @@
         }
         console.log(broadAdd);
 
-        //find range
-        
-
-        
+        let tr = document.createElement("tr");
         const tablePop = (val) => {
-            let tr = document.getElementsByTagName("tr")[1];
             let td = document.createElement("td");
             td.innerText = val;
             tr.appendChild(td);
+            let tbody = document.getElementsByTagName("tbody")[0];
+            tbody.appendChild(tr);
         }
+        tablePop(class1);
         tablePop(netAdd);
         tablePop(fRange + '-' + lRange);
         tablePop(broadAdd);
-        // netAdd="";
-        // fRange="";
-        // lRange="";
-        // broadAdd="";
+        class1 = "";
+        netAdd="";
+        fRange="";
+        lRange="";
+        broadAdd="";
     }
     document.getElementsByTagName("button")[0].addEventListener("click", calculator);
