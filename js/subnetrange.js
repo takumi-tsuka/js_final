@@ -1,6 +1,8 @@
 function calculateIP() {
-    let tbody = document.getElementsByTagName("tbody")[0];
-    let tbody1 = document.getElementsByTagName("tbody")[1];
+    // let tbody = document.getElementsByTagName("tbody")[0];
+    let tbody = document.getElementById("su")
+    // let tbody1 = document.getElementsByTagName("tbody")[1];
+    let tbody1 = document.getElementById("pablo")
     while(tbody.firstChild){
         tbody.removeChild(tbody.firstChild);
     }
@@ -130,7 +132,8 @@ let sbnt = lowIP.split(".");
   };
 
   document.getElementsByTagName("select")[0].addEventListener("change", getVal);
-  document.getElementsByTagName("button")[0].addEventListener("click", calculateIP);
+  // document.getElementsByTagName("button")[0].addEventListener("click", calculateIP);
+  document.getElementById("mTrigger").addEventListener("click",calculateIP)
 
   function getInterestingOctet(prefix) {
     const prefixLength = parseInt(prefix);

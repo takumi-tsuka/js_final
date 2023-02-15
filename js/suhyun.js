@@ -19,8 +19,8 @@ const inputVal = () => {
     stIp = stIp.replace(",", "");
     stIp = stIp.replace(",", "");
 }
-document.getElementsByTagName("button")[0].addEventListener("click", inputVal);
-
+// document.getElementsByTagName("button")[0].addEventListener("click", inputVal);
+document.getElementById("mTrigger").addEventListener("click",inputVal);
 const toBi = (num) => {
     let bi = num.toString(2);
     console.log(bi);
@@ -271,4 +271,5 @@ const calculator = () => {
         // hBits = 0;
     }
 }
-document.getElementsByTagName("button")[0].addEventListener("click", calculator);
+// document.getElementsByTagName("button")[0].addEventListener("click", calculator);
+document.getElementById("mTrigger").addEventListener("click",calculator);

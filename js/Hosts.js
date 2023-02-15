@@ -13,7 +13,7 @@ const CalHost =()=>{
     let hostsNum = document.getElementsByTagName("input")[1].value;
     let hosts =[];
     if(hostsNum > 4294967294){
-        document.getElementsByTagName("h1")[0].innerText = "";
+        document.getElementsByTagName("h2")[0].innerText = "";
         alert("can't calculate");
     }else{
         for(let x=1; x<=32;x++){
@@ -44,7 +44,7 @@ const CalHost =()=>{
         let decSn3rdOc = toDecinmal(SnThirdOc);
         let decSn4thOc = toDecinmal(SnFourthOc);
         let decSnMask = decSn1stOc+"."+decSn2ndOc+"."+decSn3rdOc+"."+decSn4thOc; 
-        document.getElementsByTagName("h1")[0].innerText = decSnMask;
+        document.getElementsByTagName("h2")[0].innerText = decSnMask;
     }
 }
-document.getElementsByTagName("button")[1].addEventListener("click",CalHost);
+document.getElementById("calHost").addEventListener("click",CalHost);
