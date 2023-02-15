@@ -33,22 +33,27 @@
     // toBi(128);
     
     let snBi = "";
+    let hBits = 0;
     const subnetMask = (e) => {
         let select = e.target.value;
         console.log(select);
         let one ="";
         let zr = "";
+        let count = 0;
         for(let x = 0;x < select;x++) {
             one += "1";
         }
         for(let y = 0;y < 32-select;y++) {
             zr += "0";
+            count++;
         }
         snBi = one + zr;
         console.log(snBi);
+        hBits = 2**count-2;
+        console.log(hBits);
+        
     }
     document.getElementsByTagName("select")[0].addEventListener("change",subnetMask);
-    
 
     const calculator = () => {
         let string ="";
@@ -250,10 +255,12 @@
         tablePop(netAdd);
         tablePop(fRange + '-' + lRange);
         tablePop(broadAdd);
+        tablePop(hBits);
         class1 = "";
         netAdd="";
         fRange="";
         lRange="";
         broadAdd="";
+        hBits = 0;
     }
     document.getElementsByTagName("button")[0].addEventListener("click", calculator);
