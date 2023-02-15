@@ -1,8 +1,9 @@
     let stIp = "";
+    let arr = [];
     const inputVal = () => {
         let input = document.getElementsByTagName("input")[0].value;
         console.log(input);
-        let arr = input.split('.');
+        arr = input.split('.');
         console.log(arr);
         let arr1 = [];
         for(let biNum of arr) {
@@ -49,8 +50,8 @@
     document.getElementsByTagName("select")[0].addEventListener("change",subnetMask);
     
 
-    let string ="";
     const calculator = () => {
+        let string ="";
         console.log(stIp);
         console.log(snBi);
         for(let z = 0;z < 32;z++){
@@ -124,31 +125,28 @@
         console.log(fRange);
 
         let netAdd = "";
-        let f = ""
         for(let index in arr3) {
             if(index < 3) {
                 netAdd += arr3[index] + ".";
             }else {
                 netAdd += arr3[index];
             }
-            if(index == 1){
-                f = arr3[index]; 
-            }
         }
         console.log(netAdd);
 
         let class1 = "";
-        if("1"<= f && f <= "127"){
+        if(1<= arr[0] && arr[0] <= 127){
             class1 = "A";
-        }else if("128" <= f && f <= "191"){
+        }else if("128" <= arr[0] && arr[0] <= "191"){
             class1 = "B";
-        }else if("192" <= f && f <= "223"){
+        }else if("192" <= arr[0] && arr[0] <= "223"){
             class1 = "C";
-        }else if("224" <= f && f <= "239"){
+        }else if("224" <= arr[0] && arr[0] <= "239"){
             class1 = "D";
         }else{
             class1 = "E";
         }   
+        arr=[];
 
         let opsnBi = "";
         for(let val of snBi) {
