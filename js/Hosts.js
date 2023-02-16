@@ -44,7 +44,7 @@ const CalHost =()=>{
         let decSn3rdOc = toDecinmal(SnThirdOc);
         let decSn4thOc = toDecinmal(SnFourthOc);
         let decSnMask = decSn1stOc+"."+decSn2ndOc+"."+decSn3rdOc+"."+decSn4thOc; 
-        document.getElementsByTagName("h2")[0].innerText = decSnMask;
+        document.getElementsByTagName("h2")[0].innerText = "SubnetMask from number of the required hosts"+ decSnMask;
     }
 }
 document.getElementById("calHost").addEventListener("click",CalHost);
