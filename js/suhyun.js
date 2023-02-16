@@ -60,6 +60,20 @@ const subnetMask = (e) => {
 document.getElementsByTagName("select")[0].addEventListener("change",subnetMask);
 
 const calculator = () => {
+    let class1 = "";
+        if(1<= arr[0] && arr[0] <= 127){
+            class1 = "A";
+        }else if("128" <= arr[0] && arr[0] <= "191"){
+            class1 = "B";
+        }else if("192" <= arr[0] && arr[0] <= "223"){
+            class1 = "C";
+        }else if("224" <= arr[0] && arr[0] <= "239"){
+            class1 = "D";
+        }else{
+            class1 = "E";
+        }   
+        arr=[];
+
     let string ="";
     console.log(stIp);
     console.log(snBi);
@@ -146,20 +160,7 @@ const calculator = () => {
         }
         console.log(netAdd);
 
-        let class1 = "";
-        if(1<= arr[0] && arr[0] <= 127){
-            class1 = "A";
-        }else if("128" <= arr[0] && arr[0] <= "191"){
-            class1 = "B";
-        }else if("192" <= arr[0] && arr[0] <= "223"){
-            class1 = "C";
-        }else if("224" <= arr[0] && arr[0] <= "239"){
-            class1 = "D";
-        }else{
-            class1 = "E";
-        }   
-        arr=[];
-
+        
         let opsnBi = "";
         for(let val of snBi) {
             if(val == "1"){
